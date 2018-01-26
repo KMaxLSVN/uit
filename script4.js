@@ -15,3 +15,8 @@ function myFunction (i) {
 	return i;
 }
 console.log(myFunction(5));
+
+function fact(n) {
+	return (n != 1) ? n * fact(n - 1) : 1;
+}
+console.log(fact(5));
