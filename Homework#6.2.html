@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        .form-demo {
+            background-color: #27292b;
+            color: white;
+            margin: auto;
+            padding: 33px 84px 60px;
+            width: 465px;
+        }
+        h1 {
+            border-bottom: 1px solid #47494b;
+            color: #fff;
+            cursor: pointer;
+            font-family: Montserrat, Arial, sans-serif;
+            font-size:  1.813em;
+            padding-bottom: 23px;
+            text-transform: uppercase;
+        }
+        .form label, .form input {
+            font-family: Lato, Arial, sans-serif;
+            font-size: 0.813em;
+        }
+        .err {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="script6.2.js"></script>
+</head>
+<body>
+    <div class="form-demo">
+        <h1>Request</h1>
+        <form action="javascript:void(0)" class="form" method="post">
+            <div>
+                <label for="login">Login</label>
+                <input type="text" name="form_data[login]" id="login">
+                <br />
+                <div class="err">Error!!!</div>
+                <label for="password">Password</label>
+                <input type="text" name="form_data[password]" id="password">
+                <br />
+                <div class="err">Error!!!</div>
+                <label for="email">Email</label>
+                <input type="text"name="form_data[email]" id="email"/>
+                <br />
+                <div class="err">Error!!!</div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Submit" id="sub">
+                <input type="reset" value="Cancel">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
