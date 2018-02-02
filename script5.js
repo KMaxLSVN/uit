@@ -1,26 +1,15 @@
 //Task Сделать картинку которая перемещается по экрану, можно плавно можно нет
 
-//let foo = document.getElementById('fly');
-//function moved () {
-//    foo.style.right = parseInt(foo.style.right) + 20 + 'px';
-//}
-//function timeToMove () {
-//    let bar = setInterval( moved, 1000 )
-//}
-//timeToMove();
-(function(){
-    let foo = 10;
-    let bar = 0;
-    timeToMove = function () {
-        let elem = document.getElementById('circle');
-        let bottom = elem.offsetTop;
-        if (bar < 10) {
-            setTimeout(timeToMove, foo);
-            elem.style.top = bottom + 20 + 'px';
-        }
-        bar++;
+let elem = document.getElementById('circle');
+let qwe = setTimeout(function foo() {
+    let bottom = elem.offsetTop;
+    elem.style.top = bottom + 5 + 'px';
+    if( bottom > 400 ) {
+        clearTimeout(qwe);
+        return;
     }
-})();
+    qwe = setTimeout(foo, 50);
+}, 10);
 
 
 //Task Вывести ряд фибоначчи
@@ -40,14 +29,7 @@ function fib( bar ) {
 
 console.log(fib(8));
 
-//function fibR(n) {
-//    return n <= 1 ? n : fibR(n - 1) + fibR(n - 2);
-//}
-function fibR ( n ) {
-    if ( n >= 1 ) {
-        fibR( n-1 ) + fibR( n-2 )
-    }
-    return n;
+function fibR(n) {
+    return n <= 1 ? n : fibR(n - 1) + fibR(n - 2);
 }
-
 console.log(fibR(8));
