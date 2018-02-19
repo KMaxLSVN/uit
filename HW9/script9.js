@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event){
-    // Ball
+//Ball
     class Ball {
         constructor(ball, top, left, color){
             this.top = top;
@@ -8,54 +8,68 @@ document.addEventListener("DOMContentLoaded", function(event){
 
             let move_timer = null;
             let move_speed = 10;
-
-            // default style
+//Default style
             this.ball.style.top = `${top}px`;
             this.ball.style.left = `${left}px`;
             this.ball.style.background = color;
-
-            // use in AI
+//Use in AI
             this.ball_x = null;
             this.ball_y = null;
-
-            // start
+//Start
             this.move();
         }
-
+//Method move
         move(){
             this.move_timer = setInterval( () => {
                 this.top++;
                 this.ball.style.top = this.top+'px';
 
-
                 this.ball_x = this.left + (+window.getComputedStyle(this.ball).getPropertyValue('width').slice(0, -2) / 2);
                 this.ball_y = this.top + (+window.getComputedStyle(this.ball).getPropertyValue('height').slice(0, -2));
 
                 this.over_screen();
+
             }, this.move_speed)
         }
-
+//Method stop
         stop() {
             clearInterval(this.move_timer);
         }
-
+//Method over_screen
         over_screen() {
             if( this.ball_y > window.innerHeight ) this.stop();
         }
-
     }
+//Ball end
+    let mercury = new Ball('mercury', -300, 20, 'red');
+    let venus = new Ball('venus', -100, 300, 'blue');
+    let earth = new Ball('earth', -400, 500, 'green');
+    let mars = new Ball('mars', -600, 700, 'yellow');
+    let jupiter = new Ball('jupiter', -350, 800, 'black');
+    let saturn = new Ball('saturn', -800, 900, 'orange');
+    let uranus = new Ball('uranus', -500, 1000, 'brown');
+    let neptune = new Ball('neptune', -300, 1200, 'purple');
 
-    let ball = new Ball('my_ball_0', 12, 30, 'red');
-    let ball_1 = new Ball('my_ball_1', 30, 100, 'blue');
-
-    // Ball end
-
-    // Platform
+    //Platform
     class Platform {
-        constructor(){
-            this.top_platform
+
+        constructor(platform){
+            this.platform = document.getElementById(platform);
+            this.middle_pl = +window.getComputedStyle(this.platform).getPropertyValue('width').slice(0, -2) / 2;
+            document.addEventListener('mousemove', function(e){
+                this.move(e.clientX)
+            });
+            // this.platform_left = +window.getComputedStyle(platform).getPropertyValue('left').slice(0, -2);
         }
+        move(pl_x) {
+            this.platform.style.left = pl_x - this.middle_pl +'px';
+        }
+
+
+
     }
+    let platform = new Platform('platform');
+
 
 // document.getElementById('platform').onclick = () => ball.stop();
 
