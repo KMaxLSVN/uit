@@ -3,27 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Work #9</title>
-    <style type="text/css">
-        .ball {
-            border: 1px #000 solid;
-            border-radius: 50%;
-            width: 70px;
-            height:70px;
-            background-color: indianred;
-            top: 0;
-            position: absolute;
-        }
-
-        #platform {
-            display: block;
-            bottom: 0;
-            left: 0;
-            position: absolute;
-            background: blue;
-            width: 200px;
-            height: 50px;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet">
     <script src="script9.js"></script>
 </head>
 <body>
@@ -34,9 +14,18 @@
     <div class="ball" id="mars"></div>
     <div class="ball" id="jupiter"></div>
     <div class="ball" id="saturn"></div>
-    <div class="ball" id="uranus"></div>>
+    <div class="ball" id="uranus"></div>
     <div class="ball" id="neptune"></div>
+<!-- Score -->
+    <div id="div_up">SCORE :
+        <span id="score">0</span>
+    </div>
 <!-- Platforms -->
-    <div id = "platform"></div>
+    <div id = "platform">black hole</div>
+<!-- Button -->
+    <div id="push">
+        <h1>Are you ready for start the game "Back to the Past"?</h1>
+        <input id="start" value="start" onclick="start()" type="button">
+    </div>
 </body>
 </html>
